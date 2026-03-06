@@ -308,8 +308,10 @@ void loop()
 
   // * ESTRATÉGIAS *
 
-  Missil();
-  delay(1000);
+  digitalWrite(PWMA, HIGH);
+  digitalWrite(PWMB, LOW);
+  digitalWrite(PWMC, HIGH);
+  digitalWrite(PWMD, LOW);
 
   // STRAT 1
   if (comando == "m")
