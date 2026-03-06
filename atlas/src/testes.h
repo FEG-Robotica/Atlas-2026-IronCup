@@ -300,15 +300,15 @@ void orbitar()
 
 void levantar() // (definir ângulo da bandeira levantada)
 {
-  band1.write(90);
-  band2.write(90);
+  band1.write(0);
+  band2.write(0);
   Serial.println("Bandeira Levantada");
 }
 
 void abaixar() // (definir ângulo da bandeira abaixada)
 {
-  band1.write(180); 
-  band2.write(180);
+  band1.write(90); 
+  band2.write(90);
   Serial.println("Bandeira Abaixada");
 }
 
