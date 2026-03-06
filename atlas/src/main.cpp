@@ -134,9 +134,9 @@ void setup()
 
   // Servo
   band1.attach(39);
-  band1.write(90);
+  band1.write(0);
   band2.attach(40);
-  band2.write(90);
+  band2.write(0);
 
   Serial.begin(9600);
 
