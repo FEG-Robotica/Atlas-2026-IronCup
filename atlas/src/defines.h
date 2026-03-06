@@ -8,9 +8,9 @@
 #define SENSOR_LAT_DIR 4   //_SDA
 #define SENSOR_FRONT_DIR 5 //_SDB
 #define SENSOR_MEIO_DIR 6 //_SDC
-#define SENSOR_MEIO_ESQ 17 //_SDD
-#define SENSOR_LAT_ESQ 7   //_SDE
-#define SENSOR_FRONT_ESQ 15  //_SDF
+#define SENSOR_MEIO_ESQ 7 //_SDD
+#define SENSOR_FRONT_ESQ 15  //_SDE
+#define SENSOR_LAT_ESQ 16   //_SDF
 
 // Pwm
 #define PWMA 38 // entrada motor A IN1_A
