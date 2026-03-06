@@ -309,6 +309,7 @@ void loop()
   // * ESTRATÉGIAS *
 
   Missil();
+  delay(1000);
 
   // STRAT 1
   if (comando == "m")
