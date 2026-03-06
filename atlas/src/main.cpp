@@ -308,6 +308,8 @@ void loop()
 
   // * ESTRATÉGIAS *
 
+  Missil();
+
   // STRAT 1
   if (comando == "m")
   {
@@ -344,9 +346,4 @@ void loop()
     STRAT2();
   }
 
-  // teste de motor
-  if (digitalRead(MODULO_START) == 1)
-  {
-    Missil();
-  }
 }
