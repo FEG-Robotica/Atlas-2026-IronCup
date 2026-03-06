@@ -59,7 +59,7 @@ void STRAT2() // Estratégia(2) Órbita
   if (digitalRead(MODULO_START) == 1)
   {
     abaixar();
-    vTaskResume(taskEvitar);
+    // vTaskResume(taskEvitar);
 
     if (digitalRead(SENSOR_LAT_DIR) == 1) //inimigo à direita
     {

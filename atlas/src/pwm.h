@@ -13,14 +13,14 @@ void mover_motor(char lado, char direcao, int velocidade)
   {
     if (direcao == 'f')
     { // ir para frente
-      analogWrite(PWMA, velocidade * corre);
-      analogWrite(PWMB, LOW);
+      ledcWrite(0, velocidade * corre); //IN1_A
+      ledcWrite(1, 0);                  //IN2_A
     }
 
     if (direcao == 't')
     { // ir para trás
-      analogWrite(PWMA, LOW);
-      analogWrite(PWMB, velocidade * corre);
+      ledcWrite(0, 0);                  //IN1_A
+      ledcWrite(1, velocidade * corre); //IN2_A
     }
   }
 
@@ -28,14 +28,14 @@ void mover_motor(char lado, char direcao, int velocidade)
   {
     if (direcao == 'f')
     { // ir para frente
-      analogWrite(PWMC, velocidade * corre);
-      analogWrite(PWMD, LOW);
+      ledcWrite(2, velocidade * corre); //IN3_B
+      ledcWrite(3, 0);                  //IN4_B
     }
 
     if (direcao == 't')
     { // ir para trás
-      analogWrite(PWMC, LOW);
-      analogWrite(PWMD, velocidade * corre);
+      ledcWrite(2, 0);                  //IN3_B
+      ledcWrite(3, velocidade * corre); //IN4_B
     }
   }
 }
