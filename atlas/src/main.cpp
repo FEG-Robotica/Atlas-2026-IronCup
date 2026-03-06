@@ -134,7 +134,7 @@ void setup()
 
   // Servo
   band1.attach(39);
-  band1.write(0);
+  band1.write(40);
   band2.attach(40);
   band2.write(0);
 

@@ -67,37 +67,37 @@ void STRAT2() // Estratégia(2) Órbita
       mover_motor('d','t',250);
       delay(250);
     }
-    if (digitalRead(SENSOR_LAT_ESQ) == 1) //inimigo à esquerda
+    else if (digitalRead(SENSOR_LAT_ESQ) == 1) //inimigo à esquerda
     {
       mover_motor('e','t',250);
       mover_motor('d','f',250);
       delay(250);
     }
-    if (digitalRead(SENSOR_FRONT_DIR) == 1) //inimigo na diagonal direita
+    else if (digitalRead(SENSOR_FRONT_DIR) == 1) //inimigo na diagonal direita
     {
       mover_motor('e','f',180);
       mover_motor('d','t',180);
       delay(124);
     }
-    if (digitalRead(SENSOR_FRONT_ESQ) == 1) //inimigo na diagonal esquerda
+    else if (digitalRead(SENSOR_FRONT_ESQ) == 1) //inimigo na diagonal esquerda
     {
       mover_motor('e','t',180);
       mover_motor('d','f',180);
       delay(124);
     }
-    if (digitalRead(SENSOR_MEIO_DIR) == 1) //inimigo à frente na direita
+    else if (digitalRead(SENSOR_MEIO_DIR) == 1) //inimigo à frente na direita
     {
       mover_motor('e','f',250);
       mover_motor('d','f',210);
       delay(100);
     }
-    if (digitalRead(SENSOR_MEIO_ESQ) == 1) //inimigo à frente na esquerda
+    else if (digitalRead(SENSOR_MEIO_ESQ) == 1) //inimigo à frente na esquerda
     {
       mover_motor('e','f',210);
       mover_motor('d','f',250);
       delay(100);
     }
-    if ((digitalRead(SENSOR_MEIO_DIR) == 1) && (digitalRead(SENSOR_MEIO_ESQ) == 1))
+    else if ((digitalRead(SENSOR_MEIO_DIR) == 1) && (digitalRead(SENSOR_MEIO_ESQ) == 1))
     {
       mover_motor('e','f',200);
       mover_motor('d','f',200);
