@@ -344,4 +344,9 @@ void loop()
     STRAT2();
   }
 
+  // teste de motor
+  if (digitalRead(MODULO_START) == 1)
+  {
+    Missil();
+  }
 }
