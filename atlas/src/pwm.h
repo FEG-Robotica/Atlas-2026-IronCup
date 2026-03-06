@@ -3,24 +3,34 @@
 
 #ifndef PWM_H
 #define PWM_H
+float time;
+time =200.0;
 
-const double corrd = 1;
-const double corre = 1;
+float corrd = 1.0;
+float corre = 1.0;
 
-void mover_motor(char lado, char direcao, int velocidade)
+void mover_motor(char lado, char direcao, float velocidade)
 {
   if (lado == 'd')
   {
     if (direcao == 'f')
     { // ir para frente
-      ledcWrite(0, velocidade * corre); //IN1_A
-      ledcWrite(1, 0);                  //IN2_A
+      digitalWrite(PWMA, HIGH);
+      digitalWrite(PWMB, LOW);
+      delay(time*velocidade*corre);
+      digitalWrite(PWMA, LOW);
+      digitalWrite(PWMB, LOW);
+      delay(time*(1-(velocidade*corre)));
     }
 
     if (direcao == 't')
     { // ir para trás
-      ledcWrite(0, 0);                  //IN1_A
-      ledcWrite(1, velocidade * corre); //IN2_A
+      digitalWrite(PWMA, LOW);
+      digitalWrite(PWMB, HIGH);
+      delay(time*velocidade*corre);
+      digitalWrite(PWMA, LOW);
+      digitalWrite(PWMB, LOW);
+      delay(time*(1-(velocidade*corre)));
     }
   }
 
@@ -28,22 +38,30 @@ void mover_motor(char lado, char direcao, int velocidade)
   {
     if (direcao == 'f')
     { // ir para frente
-      ledcWrite(2, velocidade * corre); //IN3_B
-      ledcWrite(3, 0);                  //IN4_B
+      digitalWrite(PWMC, HIGH);
+      digitalWrite(PWMD, LOW);
+      delay(time*velocidade*corrd);
+      digitalWrite(PWMC, LOW);
+      digitalWrite(PWMD, LOW);
+      delay(time*(1-(velocidade*corrd)));
     }
 
     if (direcao == 't')
     { // ir para trás
-      ledcWrite(2, 0);                  //IN3_B
-      ledcWrite(3, velocidade * corre); //IN4_B
+      digitalWrite(PWMC, LOW);
+      digitalWrite(PWMD, HIGH);
+      delay(time*velocidade*corrd);
+      digitalWrite(PWMC, LOW);
+      digitalWrite(PWMD, LOW);
+      delay(time*(1-(velocidade*corrd)));
     }
   }
 }
 
-void controlar_motores(int velocidade, char sentido)
+void controlar_motores(float velocidade, char sentido)
 {
-  mover_motor('e', sentido, 400);
-  mover_motor('d', sentido, 400);
+  mover_motor('e', sentido, 0.5);
+  mover_motor('d', sentido, 0.5);
 }
 
 void testar_PWM()
@@ -56,55 +74,56 @@ void testar_PWM()
 
 void frente()
 {
-  mover_motor('e', 'f', 500);
-  mover_motor('d', 'f', 500);
+  mover_motor('e', 'f', 0.5);
+  mover_motor('d', 'f', 0.5);
 }
 void tras()
 {
-  mover_motor('e', 't', 400);
-  mover_motor('d', 't', 400);
+  mover_motor('e', 't', 0.5);
+  mover_motor('d', 't', 0.5);
 }
 
 void direita()
 {
-  mover_motor('e', 'f', 200);
-  mover_motor('d', 'f', 400);
+  mover_motor('e', 'f', 0.25);
+  mover_motor('d', 'f', 0.50);
 }
 
 void esquerda()
 {
-  mover_motor('e', 'f', 400);
-  mover_motor('d', 'f', 200);
+  mover_motor('e', 'f', 0.50);
+  mover_motor('d', 'f', 0.25);
 }
 
 void parar()
 {
-  digitalWrite(PWMA, LOW);
-  digitalWrite(PWMB, LOW);
-  digitalWrite(PWMC, LOW);
-  digitalWrite(PWMD, LOW);
-  analogWrite(PWMA, 0);
-  analogWrite(PWMB, 0);
-  analogWrite(PWMC, 0);
-  analogWrite(PWMD, 0);
+  digitalWrite(PWMA, HIGH);
+  digitalWrite(PWMB, HIGH);
+  digitalWrite(PWMC, HIGH);
+  digitalWrite(PWMD, HIGH);
+  delay(50);
+  digitalWrite(PWMA, 0);
+  digitalWrite(PWMB, 0);
+  digitalWrite(PWMC, 0);
+  digitalWrite(PWMD, 0);
 }
 
 void girar_eixo()
 {
-  mover_motor('e', 'f', 300);
-  mover_motor('d', 't', 300);
+  mover_motor('e', 'f', 0.25);
+  mover_motor('d', 't', 0.25);
 }
 
 void girar_circulo()
 {
-  mover_motor('e', 'f', 100);
-  mover_motor('d', 'f', 50);
+  mover_motor('e', 'f', 1);
+  mover_motor('d', 'f', 0.5);
 }
 
 void girar_180()
 {
-  mover_motor('e', 'f', 400);
-  mover_motor('d', 't', 400);
+  mover_motor('e', 'f', 0.5);
+  mover_motor('d', 't', 0.5);
   delay(200);
   parar();
 }
