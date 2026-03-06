@@ -3,8 +3,8 @@
 
 #ifndef PWM_H
 #define PWM_H
-float time;
-time =200.0;
+
+float tempo = 200.0;
 
 float corrd = 1.0;
 float corre = 1.0;
@@ -17,20 +17,20 @@ void mover_motor(char lado, char direcao, float velocidade)
     { // ir para frente
       digitalWrite(PWMA, HIGH);
       digitalWrite(PWMB, LOW);
-      delay(time*velocidade*corre);
+      delay(tempo*velocidade*corre);
       digitalWrite(PWMA, LOW);
       digitalWrite(PWMB, LOW);
-      delay(time*(1-(velocidade*corre)));
+      delay(tempo*(1-(velocidade*corre)));
     }
 
     if (direcao == 't')
     { // ir para trás
       digitalWrite(PWMA, LOW);
       digitalWrite(PWMB, HIGH);
-      delay(time*velocidade*corre);
+      delay(tempo*velocidade*corre);
       digitalWrite(PWMA, LOW);
       digitalWrite(PWMB, LOW);
-      delay(time*(1-(velocidade*corre)));
+      delay(tempo*(1-(velocidade*corre)));
     }
   }
 
@@ -40,20 +40,20 @@ void mover_motor(char lado, char direcao, float velocidade)
     { // ir para frente
       digitalWrite(PWMC, HIGH);
       digitalWrite(PWMD, LOW);
-      delay(time*velocidade*corrd);
+      delay(tempo*velocidade*corrd);
       digitalWrite(PWMC, LOW);
       digitalWrite(PWMD, LOW);
-      delay(time*(1-(velocidade*corrd)));
+      delay(tempo*(1-(velocidade*corrd)));
     }
 
     if (direcao == 't')
     { // ir para trás
       digitalWrite(PWMC, LOW);
       digitalWrite(PWMD, HIGH);
-      delay(time*velocidade*corrd);
+      delay(tempo*velocidade*corrd);
       digitalWrite(PWMC, LOW);
       digitalWrite(PWMD, LOW);
-      delay(time*(1-(velocidade*corrd)));
+      delay(tempo*(1-(velocidade*corrd)));
     }
   }
 }
